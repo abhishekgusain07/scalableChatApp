@@ -1,26 +1,3 @@
-:root {
-  --max-width: 1100px;
-  --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 0, 0, 0;
-
-  --callout-rgb: 20, 20, 20;
-  --callout-border-rgb: 108, 108, 108;
-  --card-rgb: 100, 100, 100;
-  --card-border-rgb: 200, 200, 200;
-
-  --glow-conic: conic-gradient(
-    from 180deg at 50% 50%,
-    #2a8af6 0deg,
-    #a853ba 180deg,
-    #e92a67 360deg
-  );
-}
 
 * {
   box-sizing: border-box;
@@ -30,21 +7,166 @@
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    #cedbe9 0%,
+    #aac5de 17%,
+    #6199c7 50%,
+    #3a84c4 51%,
+    #419ad6 59%,
+    #26558b 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.main {
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color:black;
+  height: fit-content;
+  width: fit-content;
+  border: 10px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  
+}
+.second {
+  display: flex;
+  row-gap: 3rem;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  margin-top: 10rem;
+}
+.heading {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  justify-items:center;
+  margin-top: 2rem;
+}
+input {
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; /* Border color */
+  border-radius: 20px; /* Round corners */
+  padding: 10px; /* Padding for text */
+  background-color: transparent; /* Transparent background */
+  font-weight: bold; /* Bold text */
+  outline: none; /* Remove default outline */
+}
+
+
+/* CSS */
+.button-85 {
+  margin-left: 1rem;
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:before {
+  content: "";
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+.gradient-border {
+  --borderWidth: 3px;
+  background: #1D1F20;
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+.gradient-border:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+
+@keyframes animatedgradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
