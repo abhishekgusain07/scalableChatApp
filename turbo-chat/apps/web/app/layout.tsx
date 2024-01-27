@@ -16,10 +16,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }): JSX.Element {
   return (
-    <html lang="en">
-      <SocketProvider>
-      <body className={inter.className}>{children}</body>
-      </SocketProvider>
-    </html>
+    <SocketProvider>
+      <html lang="en">
+        <body className={inter.className}>{children}</body>
+      </html>
+    </SocketProvider>
   );
 }
