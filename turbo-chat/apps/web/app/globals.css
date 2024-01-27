@@ -39,6 +39,7 @@ h1 {
 .message {
   padding: 1rem;
   display: flex;
+  overflow-y: auto;
   flex-direction: column;
   margin: 2rem;
   border-radius: 9px;
